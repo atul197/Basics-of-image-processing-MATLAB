@@ -1,0 +1,15 @@
+i = imread('Test_images\apple3.bmp');
+i = imresize(i,[256 256]);
+j = rgb2gray(i);
+%j = imnoise(j,'salt & pepper',0.1);
+subplot(3,2,1), imshow(i);
+subplot(3,2,2),imshow(j);
+j = imnoise(j,'salt & pepper',0.1);
+filt1 = ordfilt2(j,1,ones(3,3));
+subplot(3,2,3),imshow(filt1);title('min filter result');
+filt2 = ordfilt2(j,9,ones(3,3));
+subplot(3,2,4),imshow(filt2);title('max filter result');
+filt3 = ordfilt2(j,5,ones(3,3));
+subplot(3,2,5),imshow(filt3);title('median filter result');
+filt4 = ordfilt2(j,5,ones(3,3));
+subplot(3,2,6),imshow(filt4);title('median2');

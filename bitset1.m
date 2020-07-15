@@ -1,0 +1,10 @@
+i = imread('Test_images\apple3.bmp');
+a = rgb2gray(i);
+subplot(3,3,1),imshow(a);title('grayscale');
+b = zeros(size(a));
+b = bitset(b,5,bitget(a,5));
+b = bitset(b,6,bitget(a,6));
+b = bitset(b,7,bitget(a,7));
+b = bitset(b,8,bitget(a,8));
+b = uint8(b);
+subplot(3,3,2),imshow(b);title('bitset 5678');
